@@ -10,9 +10,7 @@
   "homepage": "https://emilebres.github.io/react-virtualized-checkbox",
   "main": "lib/index.js",
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
     "gh-pages": "^1.0.0",
-    "material-ui": "^0.20.2",
     "prop-types": "^15.5.10",
     "react-virtualized": "^9.9.0"
   },
@@ -46,15 +44,10 @@
     "rimraf": "^2.6.1"
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "prettier"
-    ],
+    "extends": ["react-app", "prettier"],
     "env": {
       "browser": true,
       "jest": true
