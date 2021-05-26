@@ -26,7 +26,7 @@
     "prepare": "rimraf lib && npm run compile",
     "compile": "npm run lint && npm run compile:js",
     "lint": "eslint src/**/*.js",
-    "compile:js": "rimraf lib && cross-env NODE_ENV=production babel src/VirtualizedCheckbox -d lib --presets es2015,react-app"
+    "compile:js": "rimraf lib && cross-env NODE_ENV=production babel src/VirtualizedCheckbox -d lib --presets es2015,react-app --ignore test.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
