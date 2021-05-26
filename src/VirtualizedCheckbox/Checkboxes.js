@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { List } from 'react-virtualized';
+import TreeItem from "@material-ui/lab/TreeItem";
+import { FormControlLabel, Checkbox } from "@material-ui/core";
+
+
 
 const Checkbox = ({ onChange, checked, label, style }) =>
   <div style={{ ...style, textAlign: 'left' }}>
@@ -35,24 +39,41 @@ class Checkboxes extends Component {
       const label = filtered ? '(Select all search results)' : '(Select all)';
       const checked = items.filter(i => i.checked).length === items.length;
       return (
-        <Checkbox
-          style={style}
-          key={'#ALL#'}
-          onChange={this.handleSelectAllChange}
-          label={label}
-          checked={checked}
-        />
+          <TreeItem nodeId={index.toString()}
+                    key={'#ALL#'}
+                    label={
+                      <FormControlLabel
+                          style={style}
+                          key={'#ALL#'}
+                          label={label}
+                          control={<Checkbox checked={checked}
+                                             onChange={this.handleSelectAllChange}/>}
+                      />
+                    }
+          />
       );
     }
     const item = items[index - 1];
     return (
-      <Checkbox
-        style={style}
-        key={item[labelKey]}
-        onChange={this.handleChange}
-        label={item[labelKey]}
-        checked={item.checked}
-      />
+        <TreeItem nodeId={index.toString()}
+                  key={item[labelKey]}
+                  label={
+                    <FormControlLabel
+                        style={style}
+                        key={item[labelKey]}
+                        label={item[labelKey]}
+                        control={<Checkbox checked={item.checked}
+                                           onChange={this.handleChange}/>}
+                    />
+                  }
+        />
+      // <Checkbox
+      //   style={style}
+      //   key={item[labelKey]}
+      //   onChange={this.handleChange}
+      //   label={item[labelKey]}
+      //   checked={item.checked}
+      // />
     );
   };
   render() {
